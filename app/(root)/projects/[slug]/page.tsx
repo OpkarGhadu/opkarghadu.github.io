@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import { getAllProjects, getProjectBySlug } from "@/lib/api";
 import markdownToHtml from "@/lib/markdownToHtml";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
 type Params = {
     params: {
@@ -34,11 +35,12 @@ export default async function Page({params}: Params){
       <Header />
       <main className="min-h-screen p-8">
         <div className="flex items-center gap-4 mb-8">
-          <img src={project.coverImage} alt="" width={32} height={32}/>
+          <Image src={project.coverImage} alt="" width={32} height={32}/>
           <h1 className="text-4xl font-semibold">{project.title}</h1>
           <a href={project.github}>
-            <img 
+            <Image
               src={'/github.svg' }
+              priority={true}
               alt="Link"
               width={32}
               height={32}/>

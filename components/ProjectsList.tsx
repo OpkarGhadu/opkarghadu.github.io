@@ -1,6 +1,6 @@
 import { Project } from "@/interfaces/project";
 import Link from "next/link";
-
+import Image from "next/image";
 interface Props {
     allProjects: Project[];
 }
@@ -19,9 +19,10 @@ export default function ProjectsList({allProjects} : Props){
                   >
                     <Link href={`/projects/${project.slug}`} className="block p-4">
                         <div className="flex items-center gap-4">
-                          <img
+                          <Image
                             src={project.coverImage}
-                            alt="Icon"
+                            priority={true}
+                            alt=""
                             width={48}
                             height={48}
                           />
