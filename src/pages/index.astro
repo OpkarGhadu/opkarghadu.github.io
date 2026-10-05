@@ -1,0 +1,87 @@
+---
+import BaseLayout  from "../layouts/BaseLayout.astro";
+
+interface SocialLink {
+	platform: string;
+	url: string;
+}
+
+const name = "Opkar Ghadu";
+
+const socialLinks: SocialLink[] = [
+	{
+		platform: 'Instagram',
+		url: 'https://instagram.com/OpkarGhadu',
+	},
+	{
+		platform: 'X',
+		url: 'https://x.com/OpkarGhadu'
+	},
+	{
+		platform: 'GitHub',
+		url: 'https://github.com/OpkarGhadu',
+	},
+];
+---
+
+<style>
+
+	h1 {
+		font-size: 2.5em;
+		margin-bottom: 0.5em;
+	}	
+	
+	.socials {
+		list-style: none;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap: 2em;
+		padding: 0;
+		margin-top: 1em;
+		
+		a {
+			color: #212;
+		}
+	}
+
+	.quote {
+		margin: 0;
+	}
+
+	.quote-source {
+		display: block;
+		margin-top: 0.5em;
+	}
+
+
+
+</style>
+
+<BaseLayout 
+	pageTitle={name}
+	description={"The personal website of Opkar Ghadu."}
+	>
+	<div class="home">
+		<h1>{name}</h1>
+
+			<p class="quote">
+				"I only know in the midnight,<br> 
+				Something will be born of me."
+				<span class="quote-source"> - John Gould Fletcher</span>
+			</p>
+
+		<nav>
+			<ul class="socials">
+				{socialLinks.map((socialLink) => (
+					<li>
+						<a href={socialLink.url}>
+							{socialLink.platform}
+						</a>
+					</li>
+				))}
+			</ul>
+		</nav>
+
+	</div>
+</BaseLayout>

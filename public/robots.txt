@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://opkarghadu.com/sitemap-index.xml
